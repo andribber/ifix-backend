@@ -11,11 +11,10 @@ VAI RODAR MELHOR NO LINUX
 - RODAR O COMANDO
     composer require laravel/sail --dev
 - APOS A EXECUÇÃO, RODAR O COMANDO
-    php artisan sail:install
-- APOS A EXECUÇÃO, RODAR O COMANDO
     php artisan key:generate
 - APOS A EXECUÇÃO, RODAR O COMANDO
     docker-compose up -d --build
+
 - O LOCALHOST JÁ DEVE ESTAR FUNCIONANDO
 PODENDO SER ACESSADO POR https://localhost:80
 
