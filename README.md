@@ -9,7 +9,7 @@ VAI RODAR MELHOR NO LINUX
 - NA PASTA DO PROJETO, RODAR O COMANDO
     cp .env.example .env
 - RODAR O COMANDO
-    composer require laravel/sail --dev
+    composer install
 - APOS A EXECUÇÃO, RODAR O COMANDO
     php artisan key:generate
 - APOS A EXECUÇÃO, RODAR O COMANDO
@@ -21,3 +21,5 @@ PODENDO SER ACESSADO POR https://localhost:80
     docker-compose exec app bash
 - RODAR AS MIGRATIONS DO BANCO
     php artisan migrate
+
+**OBS CASO O COMANDO NÃO RODE NO BASH, PODE RODAR DE FORA TBM**
