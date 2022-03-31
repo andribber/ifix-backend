@@ -13,5 +13,22 @@ Route::get('/users', function() {
 });
 
 Route::get('/user/{user}', function(User $user) {
-    return [$user, $user->cars];
+    return ['user' => $user, 'car' => $user->cars];
+});
+
+Route::post('/user', function(Request $request) {
+
+    $attributes = [
+        'name' => $request->name,
+        'email' => $request->email,
+        'cpf' => $request->cpf,
+        'contact' => $request->contact,
+        'password' => bcrypt($request->password),
+    ];
+
+    User::create($attributes);
+
+    return response()->json([
+        'message' => 'User succesfully created'
+    ], 200);
 });
