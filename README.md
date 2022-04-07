@@ -23,6 +23,3 @@ PODENDO SER ACESSADO POR https://localhost:80
     php artisan migrate
 
 **OBS CASO O COMANDO NÃO RODE NO BASH, PODE RODAR DE FORA TBM**
-
-
-teste n da merge man
