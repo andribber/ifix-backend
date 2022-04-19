@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Mechanic extends Authenticatable
+class Mechanic extends Model
 {
     use HasFactory;
 
@@ -12,7 +13,6 @@ class Mechanic extends Authenticatable
         'name',
         'cpf',
         'expertise',
-
     ];
 
 }
