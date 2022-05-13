@@ -1,25 +1,16 @@
-VAI RODAR MELHOR NO LINUX
-
-- INSTALAR O PHP 8
-- INSTALAR O COMPOSER
-
-- INSTALAR DOCKER E O DOCKER-COMPOSE
-
-- CLONAR O REPOSITORIO
-- NA PASTA DO PROJETO, RODAR O COMANDO
+# Necessário instalar PHP 8, Composer, Docker e Docker-Compose #
+- Copiar as variáveis de ambiente
     cp .env.example .env
-- RODAR O COMANDO
+- Instalar as dependências do laravel
     composer install
-- APOS A EXECUÇÃO, RODAR O COMANDO
+- Gerar a chave de acesso para localhost
     php artisan key:generate
-- APOS A EXECUÇÃO, RODAR O COMANDO
+- Construir a aplicação rodando esse comando abaixo
     ./vendor/bin/sail up
-- O LOCALHOST JÁ DEVE ESTAR FUNCIONANDO
-PODENDO SER ACESSADO POR https://localhost:80
 
-- ABRIR UMA NOVA ABA DO TERMINAL E RODAR
-    docker-compose exec app bash
-- RODAR AS MIGRATIONS DO BANCO
-    php artisan migrate
+# O projeto está ambientado para rodar na porta 80, podendo ser acessado pelo link abaixo #
+    - https://localhost:80
 
-**OBS CASO O COMANDO NÃO RODE NO BASH, PODE RODAR DE FORA TBM**
+# Para realizar as migrações para o banco seguir as instruções #
+    - docker-compose exec app bash
+    - php artisan migrate
