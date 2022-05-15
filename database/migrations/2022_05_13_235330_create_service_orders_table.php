@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('chassi', 16)->unique();
             $table->string('year');
             $table->string('license_plate', 7)->unique();
+            $table->foreignId('mechanic_id')->nullable();
             $table->string('status');
             $table->text('description')->nullable();
             $table->timestamps();
