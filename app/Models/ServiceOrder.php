@@ -6,7 +6,6 @@ use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class ServiceOrder extends Model
 {
@@ -21,7 +20,7 @@ class ServiceOrder extends Model
         'mechanic_id',
         'status',
         'description',
-        'parts',
+        'total_value',
     ];
 
     protected $casts = [

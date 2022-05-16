@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ServiceOrders\Status;
+use App\Http\Resources\ServiceOrderResource;
 use App\Models\ServiceOrder;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,17 @@ class ServiceOrdersController extends Controller
         return ServiceOrder::all();
     }
 
-    public function show($id)
+    public function show($id): ServiceOrderResource
     {
-        return ServiceOrder::find($id);
+        $serviceOrder = ServiceOrder::find($id);
+        $mechanic = $serviceOrder->mechanic;
+
+        $totalValue = $mechanic->worked_hours * $mechanic->worked_hours;
+
+        $mechanic->update(['comission' => $totalValue*0.10]);
+        $serviceOrder->update(['total_value' => $totalValue]);
+
+        return new ServiceOrderResource($serviceOrder);
     }
 
     public function create(Request $request)
