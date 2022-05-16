@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('mechanic_id')->nullable();
             $table->string('status');
             $table->text('description')->nullable();
+            $table->float('total_value')->nullable();
             $table->timestamps();
         });
     }
