@@ -1,4 +1,4 @@
-# Necessário instalar PHP 8, Composer, Docker e Docker-Compose #
+# Necessário instalar PHP, Composer, Docker e Docker-Compose #
 - Copiar as variáveis de ambiente:
     cp .env.example .env
 - Instalar as dependências do laravel:
