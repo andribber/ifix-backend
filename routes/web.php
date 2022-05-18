@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Mechanic;
 use App\Models\ServiceOrder;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
@@ -16,5 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $mechanic = Mechanic::factory()->create();
+    ServiceOrder::factory(2)->for($mechanic)->create();
+
+    $mechanic2 = Mechanic::factory()->create();
+    ServiceOrder::factory(2)->for($mechanic2)->create();
 });
