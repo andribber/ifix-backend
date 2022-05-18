@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\ServiceOrders\Status;
 use App\Http\Resources\ServiceOrderResource;
 use App\Http\Resources\ServiceOrdersAllResource;
+use App\Models\Mechanic;
 use App\Models\ServiceOrder;
 use Illuminate\Http\Request;
 
@@ -20,9 +21,9 @@ class ServiceOrdersController extends Controller
         $serviceOrder = ServiceOrder::find($id);
         $mechanic = $serviceOrder->mechanic;
 
-        $totalValue = $mechanic->worked_hours * $mechanic->worked_hours;
+        $totalValue = $this->getTotalValue($mechanic, $serviceOrder->parts);
 
-        $mechanic->update(['comission' => $totalValue*0.10]);
+        $mechanic->update(['comission' => number_format($totalValue*0.10, 2, '.')]);
         $serviceOrder->update(['total_value' => $totalValue]);
 
         return new ServiceOrderResource($serviceOrder);
@@ -54,5 +55,16 @@ class ServiceOrdersController extends Controller
     {
         $serviceOrder = ServiceOrder::find($id);
         $serviceOrder->delete();
+    }
+
+    private function getTotalValue(Mechanic $mechanic, $parts): string
+    {
+        $mechanicValue = $mechanic->worked_hours * $mechanic->hour_value;
+        foreach($parts as $part){
+            $arrayPartValue[] = $part->value;
+        }
+        $partsValue = array_sum($arrayPartValue);
+
+        return $mechanicValue + $partsValue;
     }
 }

@@ -23,6 +23,7 @@ class ServiceOrderResource extends JsonResource
             'year' => $this->year,
             'license_plate' => $this->license_plate,
             'mechanic' => new MechanicResource($this->mechanic),
+            'parts' => PartResource::collection($this->parts),
             'status' => $this->status,
             'description' => $this->description,
             'total_value' => $this->total_value,

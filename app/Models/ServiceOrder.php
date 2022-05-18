@@ -6,6 +6,7 @@ use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ServiceOrder extends Model
 {
@@ -30,5 +31,10 @@ class ServiceOrder extends Model
     public function mechanic(): BelongsTo
     {
         return $this->belongsTo(Mechanic::class);
+    }
+
+    public function parts(): HasMany
+    {
+        return $this->hasMany(Part::class);
     }
 }
