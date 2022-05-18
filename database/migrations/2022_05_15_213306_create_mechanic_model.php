@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('mechanics', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('worked_hours')->nullable();
-            $table->float('hour_value')->default(80);
-            $table->float('comission')->nullable();
+            $table->string('worked_hours')->nullable();
+            $table->string('hour_value')->default('80');
+            $table->string('comission')->nullable();
             $table->timestamps();
         });
     }
