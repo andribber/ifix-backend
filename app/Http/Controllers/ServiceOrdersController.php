@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\ServiceOrders\Status;
 use App\Http\Resources\ServiceOrderResource;
+use App\Http\Resources\ServiceOrdersAllResource;
 use App\Models\ServiceOrder;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class ServiceOrdersController extends Controller
 {
     public function view()
     {
-        return ServiceOrder::all();
+        return ServiceOrdersAllResource::collection(ServiceOrder::all());
     }
 
     public function show($id): ServiceOrderResource
