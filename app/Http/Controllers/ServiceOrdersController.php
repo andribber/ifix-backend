@@ -8,6 +8,7 @@ use App\Http\Resources\ServiceOrdersAllResource;
 use App\Models\Mechanic;
 use App\Models\ServiceOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class ServiceOrdersController extends Controller
 {
@@ -22,9 +23,10 @@ class ServiceOrdersController extends Controller
         $mechanic = $serviceOrder->mechanic;
 
         $totalValue = $this->getTotalValue($mechanic, $serviceOrder->parts);
-
-        $mechanic->update(['comission' => number_format($totalValue*0.10, 2, '.')]);
-        $serviceOrder->update(['total_value' => $totalValue]);
+        if (! is_null($totalValue)) {
+            $mechanic->update(['comission' => number_format($totalValue*0.10, 2, '.')]);
+            $serviceOrder->update(['total_value' => $totalValue]);
+        }
 
         return new ServiceOrderResource($serviceOrder);
     }
@@ -57,14 +59,22 @@ class ServiceOrdersController extends Controller
         $serviceOrder->delete();
     }
 
-    private function getTotalValue(Mechanic $mechanic, $parts): string
+    private function getTotalValue(?Mechanic $mechanic, ?Collection $parts): ?string
     {
-        $mechanicValue = $mechanic->worked_hours * $mechanic->hour_value;
-        foreach($parts as $part){
-            $arrayPartValue[] = $part->value;
-        }
-        $partsValue = array_sum($arrayPartValue);
+        $arrayPartValue = [];
 
-        return $mechanicValue + $partsValue;
+        if(! is_null($mechanic) && ! is_null($parts)) {
+            $mechanicValue = $mechanic->worked_hours * $mechanic->hour_value;
+
+            foreach($parts as $part){
+                $arrayPartValue[] = $part->value;
+            }
+
+            $partsValue = array_sum($arrayPartValue);
+
+            return $mechanicValue + $partsValue;
+        }
+
+        return null;
     }
 }

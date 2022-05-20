@@ -21,6 +21,7 @@ class ServiceOrdersAllResource extends JsonResource
             'year' => $this->year,
             'license_plate' => $this->license_plate,
             'status' => $this->status,
+            'created_at' =>  $this->created_at,
         ];
     }
 }
