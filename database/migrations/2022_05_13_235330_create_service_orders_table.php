@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('total_value')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
