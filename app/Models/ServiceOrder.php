@@ -15,7 +15,6 @@ class ServiceOrder extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'client',
         'vehicle_name',
         'chassi',
         'year',
@@ -29,6 +28,11 @@ class ServiceOrder extends Model
     protected $casts = [
         'created_at' => 'datetime',
     ];
+
+    public function client(): BelongsTo
+    {
+        return $this->belongsTo(Client::class);
+    }
 
     public function mechanic(): BelongsTo
     {

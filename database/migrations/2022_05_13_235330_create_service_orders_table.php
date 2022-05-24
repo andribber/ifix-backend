@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('service_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('client');
+            $table->foreignId('client_id');
             $table->string('vehicle_name');
             $table->string('chassi', 16)->unique();
             $table->string('year');
