@@ -34,7 +34,7 @@ class ServiceOrdersController extends Controller
     public function create(Request $request)
     {
         $attributes = $request->validate([
-            'client' => 'required',
+            'client_id' => 'required',
             'vehicle_name' => 'required',
             'chassi' => 'required|unique:service_orders',
             'year' => 'required',

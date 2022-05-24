@@ -16,3 +16,4 @@ Route::delete('/service-orders/{id}', [ServiceOrdersController::class, 'delete']
 
 // Common things controller
 Route::get('/status', [CommonController::class, 'status']);
+Route::get('/clients', [CommonController::class, 'clients']);

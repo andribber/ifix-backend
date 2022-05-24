@@ -23,6 +23,7 @@ class ServiceOrder extends Model
         'status',
         'description',
         'total_value',
+        'client_id',
     ];
 
     protected $casts = [
