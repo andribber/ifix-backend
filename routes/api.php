@@ -1,10 +1,7 @@
 <?php
 
-use App\Enums\ServiceOrders\Status;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\ServiceOrdersController;
-use App\Models\ServiceOrder;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Service Orders Controllers
@@ -16,3 +13,4 @@ Route::delete('/service-orders/{id}', [ServiceOrdersController::class, 'delete']
 
 // Common things controller
 Route::get('/status', [CommonController::class, 'status']);
+Route::get('/clients', [CommonController::class, 'clients']);

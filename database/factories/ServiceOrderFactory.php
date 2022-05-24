@@ -12,7 +12,6 @@ class ServiceOrderFactory extends Factory
     public function definition()
     {
         return [
-            'client' => $this->faker->name(),
             'vehicle_name' => $this->faker->userName(),
             'chassi' => substr($this->faker->uuid(), -16),
             'year' => Carbon::now()->format('Y'),
