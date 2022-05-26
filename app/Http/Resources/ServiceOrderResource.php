@@ -18,10 +18,7 @@ class ServiceOrderResource extends JsonResource
         return [
             'id' => $this->id,
             'client' => new ClientResource($this->client),
-            'vehicle_name' => $this->vehicle_name,
-            'chassi' => $this->chassi,
-            'year' => $this->year,
-            'license_plate' => $this->license_plate,
+            'vehicle' => new VehicleResource($this->vehicle),
             'mechanic' => new MechanicResource($this->mechanic),
             'parts' => PartResource::collection($this->parts),
             'status' => $this->status,

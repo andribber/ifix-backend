@@ -11,10 +11,7 @@ return new class extends Migration
         Schema::create('service_orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id');
-            $table->string('vehicle_name');
-            $table->string('chassi', 16)->unique();
-            $table->string('year');
-            $table->string('license_plate', 7)->unique();
+            $table->foreignId('vehicle_id');
             $table->foreignId('mechanic_id')->nullable();
             $table->string('status');
             $table->text('description')->nullable();
