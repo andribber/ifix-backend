@@ -19,6 +19,5 @@ Route::post('/clients', [ClientController::class, 'create']);
 Route::post('/clients/{id}', [ClientController::class, 'update']);
 Route::delete('/clients/{id}', [ClientController::class, 'delete']);
 
-
 // common things controller
 Route::get('/status', [CommonController::class, 'status']);

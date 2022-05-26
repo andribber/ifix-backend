@@ -25,4 +25,9 @@ class Client extends Model
     {
         return $this->hasMany(ServiceOrder::class);
     }
+
+    public function cars(): HasMany
+    {
+        return $this->hasMany(Vehicle::class);
+    }
 }

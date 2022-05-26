@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,7 +14,7 @@ class ServiceOrder extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'vehicle_name',
+        'vehicle_id',
         'chassi',
         'year',
         'license_plate',
@@ -43,5 +42,10 @@ class ServiceOrder extends Model
     public function parts(): HasMany
     {
         return $this->hasMany(Part::class);
+    }
+
+    public function car(): BelongsTo
+    {
+        return $this->belongsTo(Vehicle::class);
     }
 }
