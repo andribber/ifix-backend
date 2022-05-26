@@ -7,6 +7,7 @@ use App\Http\Resources\ServiceOrderResource;
 use App\Http\Resources\ServiceOrdersAllResource;
 use App\Models\Mechanic;
 use App\Models\ServiceOrder;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -34,14 +35,16 @@ class ServiceOrdersController extends Controller
     public function create(Request $request)
     {
         $attributes = $request->validate([
-            'client_id' => 'required',
-            'vehicle_name' => 'required',
-            'chassi' => 'required|unique:service_orders',
-            'year' => 'required',
-            'license_plate' => 'required|unique:service_orders',
+            'vehicle_id' => 'required',
             'description' => 'required',
         ]);
-        $validated = array_merge($attributes, ['status' => Status::INITIAL]);
+
+        $vehicle = Vehicle::find($request['vehicle_id']);
+
+        $validated = array_merge($attributes, [
+            'status' => Status::INITIAL,
+            'client_id' => $vehicle->client->id,
+        ]);
 
         ServiceOrder::create($validated);
     }
