@@ -15,6 +15,7 @@ class VehicleResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'model' => $this->model,
             'year' => $this->year,
             'license_plate' => $this->license_plate,
