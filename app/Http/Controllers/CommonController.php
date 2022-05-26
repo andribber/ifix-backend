@@ -13,9 +13,4 @@ class CommonController extends Controller
     {
         return Status::all();
     }
-
-    public function clients()
-    {
-        return ClientResource::collection(Client::all());
-    }
 }
