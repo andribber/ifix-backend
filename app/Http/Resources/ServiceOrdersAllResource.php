@@ -16,7 +16,7 @@ class ServiceOrdersAllResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'client' => $this?->client?->name,
+            'client' => $this->client?->name,
             'vehicle_name' => $this->vehicle_name,
             'year' => $this->year,
             'license_plate' => $this->license_plate,
