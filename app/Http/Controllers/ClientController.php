@@ -20,8 +20,8 @@ class ClientController extends Controller
             'cpf' => 'required|unique:clients',
             'email' => 'required',
             'phone' => 'required',
-            'street' => 'required',
-            'UF' => 'required',
+            'address' => 'required',
+            'uf' => 'required',
         ]);
 
         Client::create($attributes);
