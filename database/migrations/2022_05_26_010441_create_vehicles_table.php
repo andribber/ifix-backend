@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('client_id');
             $table->string('model');
             $table->string('year');
-            $table->string('license_plate', 7);
+            $table->string('license_plate');
             $table->string('manufacturer');
             $table->timestamps();
         });

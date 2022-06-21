@@ -21,7 +21,7 @@ class ClientController extends Controller
             'email' => 'required',
             'phone' => 'required',
             'street' => 'required',
-            'UF' => 'required',
+            'uf' => 'required',
         ]);
 
         Client::create($attributes);
