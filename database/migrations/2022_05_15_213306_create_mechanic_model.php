@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('worked_hours')->nullable();
-            $table->string('hour_value')->default('80');
+            $table->string('hour_value');
             $table->string('comission')->nullable();
             $table->timestamps();
         });
