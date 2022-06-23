@@ -19,6 +19,7 @@ class MechanicFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'worked_hours' => $this->faker->randomDigit(),
+            'hour_value' => 80
         ];
     }
 }

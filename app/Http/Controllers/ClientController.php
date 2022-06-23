@@ -20,7 +20,7 @@ class ClientController extends Controller
             'cpf' => 'required|unique:clients',
             'email' => 'required',
             'phone' => 'required',
-            'address' => 'required',
+            'street' => 'required',
             'uf' => 'required',
         ]);
 

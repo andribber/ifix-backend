@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('parts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('value');
+            $table->string('value')->default('0');
             $table->foreignId('service_order_id')->nullable();
             $table->timestamps();
         });
