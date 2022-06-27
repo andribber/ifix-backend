@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Mechanic;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServiceOrderResource extends JsonResource
@@ -18,8 +17,9 @@ class ServiceOrderResource extends JsonResource
         return [
             'id' => $this->id,
             'client' => new ClientResource($this->client),
-            'mechanic' => new MechanicResource($this->mechanic),
-            'parts' => PartResource::collection($this->parts),
+            'mechanic_name' => $this->mechanic_name,
+            'mechanic_hours' => $this->mechanic_hours,
+            'vehicle' => new VehicleResource($this->vehicle),
             'status' => $this->status,
             'description' => $this->description,
             'total_value' => $this->total_value,

@@ -13,6 +13,8 @@ class ServiceOrderFactory extends Factory
     {
         return [
             'status' => Status::EXECUTING,
+            'mechanic_name' => $this->faker->name(),
+            'mechanic_hours' => 2,
             'description' => $this->faker->text(20),
         ];
     }

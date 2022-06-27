@@ -27,12 +27,5 @@ Route::post('/clients/{id}/vehicles', [VehicleController::class, 'create']);
 Route::post('/vehicles/{id}', [VehicleController::class, 'update']);
 Route::delete('/vehicles/{id}', [VehicleController::class, 'delete']);
 
-//mechanic controller
-Route::get('/mechanics', [MechanicController::class, 'index']);
-Route::get('/mechanics/{id}', [MechanicController::class, 'show']);
-Route::post('/mechanics', [MechanicController::class, 'create']);
-Route::post('/mechanics/{id}', [MechanicController::class, 'update']);
-Route::delete('/mechanics/{id}', [MechanicController::class, 'delete']);
-
 // common things controller
 Route::get('/status', [CommonController::class, 'status']);

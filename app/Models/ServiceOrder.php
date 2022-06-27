@@ -15,7 +15,8 @@ class ServiceOrder extends Model
 
     protected $fillable = [
         'vehicle_id',
-        'mechanic_id',
+        'mechanic_name',
+        'mechanic_hours',
         'status',
         'description',
         'total_value',
@@ -29,16 +30,6 @@ class ServiceOrder extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
-    }
-
-    public function mechanic(): BelongsTo
-    {
-        return $this->belongsTo(Mechanic::class);
-    }
-
-    public function parts(): HasMany
-    {
-        return $this->hasMany(Part::class);
     }
 
     public function vehicle(): BelongsTo

@@ -12,7 +12,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('client_id');
             $table->foreignId('vehicle_id');
-            $table->foreignId('mechanic_id')->nullable();
+            $table->string('mechanic_name')->nullable();
+            $table->string('mechanic_hours')->nullable();
             $table->string('status');
             $table->text('description')->nullable();
             $table->string('total_value')->nullable();
